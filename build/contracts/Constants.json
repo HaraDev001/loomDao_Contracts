@@ -1,0 +1,471 @@
+{
+  "contractName": "Constants",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/utils/Constants.sol\":\"Constants\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/utils/Constants.sol\":{\"keccak256\":\"0xed1ab0bf6ffb451f216231a1851ae75df5c2d2b61bb6ebf998d91f40ee2daa08\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ed575ac2a40525c4526ba3fe113ebc9b42f51ae383d61212a3aadc6464a1ba0e\",\"dweb:/ipfs/QmSmDRRxcRYWWDp2nHKpkbbt1q32HpJm5wzwL1EToDXPY9\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.4;\r\n\r\nabstract contract Constants {\r\n    bytes32 internal constant SNAPSHOT_ROLE = keccak256(\"HEIRLOOMDAO_SNAPSHOT_ROLE\");\r\n    bytes32 internal constant PAUSER_ROLE = keccak256(\"HEIRLOOMDAO_PAUSER_ROLE\");\r\n    bytes32 internal constant MINTER_ROLE = keccak256(\"HEIRLOOMDAO_MINTER_ROLE\");\r\n    bytes32 internal constant ADMIN_ROLE = keccak256(\"HEIRLOOMDAO_ADMIN_ROLE\");\r\n    bytes32 internal constant ESCROW_ROLE = keccak256(\"HEIRLOOMDAO_ESCROW_ROLE\");\r\n}",
+  "sourcePath": "D:\\work\\heirloom\\src\\contracts\\contracts\\utils\\Constants.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/utils/Constants.sol",
+    "exportedSymbols": {
+      "Constants": [
+        5772
+      ]
+    },
+    "id": 5773,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 5746,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:33"
+      },
+      {
+        "abstract": true,
+        "baseContracts": [],
+        "canonicalName": "Constants",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 5772,
+        "linearizedBaseContracts": [
+          5772
+        ],
+        "name": "Constants",
+        "nameLocation": "78:9:33",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": true,
+            "id": 5751,
+            "mutability": "constant",
+            "name": "SNAPSHOT_ROLE",
+            "nameLocation": "121:13:33",
+            "nodeType": "VariableDeclaration",
+            "scope": 5772,
+            "src": "95:80:33",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 5747,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "95:7:33",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "arguments": [
+                {
+                  "hexValue": "484549524c4f4f4d44414f5f534e415053484f545f524f4c45",
+                  "id": 5749,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "kind": "string",
+                  "lValueRequested": false,
+                  "nodeType": "Literal",
+                  "src": "147:27:33",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_stringliteral_b6c0a1cbce9c56fc4c0b11d33f313ec475dc9c18c6c070f117a19b6c6234dcf4",
+                    "typeString": "literal_string \"HEIRLOOMDAO_SNAPSHOT_ROLE\""
+                  },
+                  "value": "HEIRLOOMDAO_SNAPSHOT_ROLE"
+                }
+              ],
+              "expression": {
+                "argumentTypes": [
+                  {
+                    "typeIdentifier": "t_stringliteral_b6c0a1cbce9c56fc4c0b11d33f313ec475dc9c18c6c070f117a19b6c6234dcf4",
+                    "typeString": "literal_string \"HEIRLOOMDAO_SNAPSHOT_ROLE\""
+                  }
+                ],
+                "id": 5748,
+                "name": "keccak256",
+                "nodeType": "Identifier",
+                "overloadedDeclarations": [],
+                "referencedDeclaration": 4294967288,
+                "src": "137:9:33",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                  "typeString": "function (bytes memory) pure returns (bytes32)"
+                }
+              },
+              "id": 5750,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "functionCall",
+              "lValueRequested": false,
+              "names": [],
+              "nodeType": "FunctionCall",
+              "src": "137:38:33",
+              "tryCall": false,
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "id": 5756,
+            "mutability": "constant",
+            "name": "PAUSER_ROLE",
+            "nameLocation": "208:11:33",
+            "nodeType": "VariableDeclaration",
+            "scope": 5772,
+            "src": "182:76:33",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 5752,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "182:7:33",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "arguments": [
+                {
+                  "hexValue": "484549524c4f4f4d44414f5f5041555345525f524f4c45",
+                  "id": 5754,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "kind": "string",
+                  "lValueRequested": false,
+                  "nodeType": "Literal",
+                  "src": "232:25:33",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_stringliteral_ad0f4d923b26df99ed90553d189d268443625c1ce82a268b2504301f2900d268",
+                    "typeString": "literal_string \"HEIRLOOMDAO_PAUSER_ROLE\""
+                  },
+                  "value": "HEIRLOOMDAO_PAUSER_ROLE"
+                }
+              ],
+              "expression": {
+                "argumentTypes": [
+                  {
+                    "typeIdentifier": "t_stringliteral_ad0f4d923b26df99ed90553d189d268443625c1ce82a268b2504301f2900d268",
+                    "typeString": "literal_string \"HEIRLOOMDAO_PAUSER_ROLE\""
+                  }
+                ],
+                "id": 5753,
+                "name": "keccak256",
+                "nodeType": "Identifier",
+                "overloadedDeclarations": [],
+                "referencedDeclaration": 4294967288,
+                "src": "222:9:33",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                  "typeString": "function (bytes memory) pure returns (bytes32)"
+                }
+              },
+              "id": 5755,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "functionCall",
+              "lValueRequested": false,
+              "names": [],
+              "nodeType": "FunctionCall",
+              "src": "222:36:33",
+              "tryCall": false,
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "id": 5761,
+            "mutability": "constant",
+            "name": "MINTER_ROLE",
+            "nameLocation": "291:11:33",
+            "nodeType": "VariableDeclaration",
+            "scope": 5772,
+            "src": "265:76:33",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 5757,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "265:7:33",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "arguments": [
+                {
+                  "hexValue": "484549524c4f4f4d44414f5f4d494e5445525f524f4c45",
+                  "id": 5759,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "kind": "string",
+                  "lValueRequested": false,
+                  "nodeType": "Literal",
+                  "src": "315:25:33",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_stringliteral_8ccbc2c0141407af8e533e0caeae8e08f837db7ce5bf08ab977e0c83af5622a4",
+                    "typeString": "literal_string \"HEIRLOOMDAO_MINTER_ROLE\""
+                  },
+                  "value": "HEIRLOOMDAO_MINTER_ROLE"
+                }
+              ],
+              "expression": {
+                "argumentTypes": [
+                  {
+                    "typeIdentifier": "t_stringliteral_8ccbc2c0141407af8e533e0caeae8e08f837db7ce5bf08ab977e0c83af5622a4",
+                    "typeString": "literal_string \"HEIRLOOMDAO_MINTER_ROLE\""
+                  }
+                ],
+                "id": 5758,
+                "name": "keccak256",
+                "nodeType": "Identifier",
+                "overloadedDeclarations": [],
+                "referencedDeclaration": 4294967288,
+                "src": "305:9:33",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                  "typeString": "function (bytes memory) pure returns (bytes32)"
+                }
+              },
+              "id": 5760,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "functionCall",
+              "lValueRequested": false,
+              "names": [],
+              "nodeType": "FunctionCall",
+              "src": "305:36:33",
+              "tryCall": false,
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "id": 5766,
+            "mutability": "constant",
+            "name": "ADMIN_ROLE",
+            "nameLocation": "374:10:33",
+            "nodeType": "VariableDeclaration",
+            "scope": 5772,
+            "src": "348:74:33",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 5762,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "348:7:33",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "arguments": [
+                {
+                  "hexValue": "484549524c4f4f4d44414f5f41444d494e5f524f4c45",
+                  "id": 5764,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "kind": "string",
+                  "lValueRequested": false,
+                  "nodeType": "Literal",
+                  "src": "397:24:33",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_stringliteral_fddb143be89620896ce3745ceb136fd672c98dea954adb8724dcfae9dc08796d",
+                    "typeString": "literal_string \"HEIRLOOMDAO_ADMIN_ROLE\""
+                  },
+                  "value": "HEIRLOOMDAO_ADMIN_ROLE"
+                }
+              ],
+              "expression": {
+                "argumentTypes": [
+                  {
+                    "typeIdentifier": "t_stringliteral_fddb143be89620896ce3745ceb136fd672c98dea954adb8724dcfae9dc08796d",
+                    "typeString": "literal_string \"HEIRLOOMDAO_ADMIN_ROLE\""
+                  }
+                ],
+                "id": 5763,
+                "name": "keccak256",
+                "nodeType": "Identifier",
+                "overloadedDeclarations": [],
+                "referencedDeclaration": 4294967288,
+                "src": "387:9:33",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                  "typeString": "function (bytes memory) pure returns (bytes32)"
+                }
+              },
+              "id": 5765,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "functionCall",
+              "lValueRequested": false,
+              "names": [],
+              "nodeType": "FunctionCall",
+              "src": "387:35:33",
+              "tryCall": false,
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "id": 5771,
+            "mutability": "constant",
+            "name": "ESCROW_ROLE",
+            "nameLocation": "455:11:33",
+            "nodeType": "VariableDeclaration",
+            "scope": 5772,
+            "src": "429:76:33",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 5767,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "429:7:33",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "arguments": [
+                {
+                  "hexValue": "484549524c4f4f4d44414f5f455343524f575f524f4c45",
+                  "id": 5769,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "kind": "string",
+                  "lValueRequested": false,
+                  "nodeType": "Literal",
+                  "src": "479:25:33",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_stringliteral_625c25fb0d3ad45caca3eaeb9b4afeb6dcdcb685ea43856c08f3c1c111e38a56",
+                    "typeString": "literal_string \"HEIRLOOMDAO_ESCROW_ROLE\""
+                  },
+                  "value": "HEIRLOOMDAO_ESCROW_ROLE"
+                }
+              ],
+              "expression": {
+                "argumentTypes": [
+                  {
+                    "typeIdentifier": "t_stringliteral_625c25fb0d3ad45caca3eaeb9b4afeb6dcdcb685ea43856c08f3c1c111e38a56",
+                    "typeString": "literal_string \"HEIRLOOMDAO_ESCROW_ROLE\""
+                  }
+                ],
+                "id": 5768,
+                "name": "keccak256",
+                "nodeType": "Identifier",
+                "overloadedDeclarations": [],
+                "referencedDeclaration": 4294967288,
+                "src": "469:9:33",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                  "typeString": "function (bytes memory) pure returns (bytes32)"
+                }
+              },
+              "id": 5770,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "functionCall",
+              "lValueRequested": false,
+              "names": [],
+              "nodeType": "FunctionCall",
+              "src": "469:36:33",
+              "tryCall": false,
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "visibility": "internal"
+          }
+        ],
+        "scope": 5773,
+        "src": "60:449:33",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:476:33"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.13+commit.abaa5c0e.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.7",
+  "updatedAt": "2022-04-17T09:59:31.391Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

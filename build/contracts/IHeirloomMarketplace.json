@@ -1,0 +1,2688 @@
+{
+  "contractName": "IHeirloomMarketplace",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "saleId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "buyer",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "BoughtFromSale",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "licenseId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "seller",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "bool",
+          "name": "closed",
+          "type": "bool"
+        }
+      ],
+      "name": "LicenseItemClosed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "licenseId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "seller",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "LicenseListed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "itemId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "seller",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "buyer",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        }
+      ],
+      "name": "LicenseSold",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "SaleId",
+          "type": "uint256"
+        }
+      ],
+      "name": "SaleClosed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "provider",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "saleId",
+          "type": "uint256"
+        }
+      ],
+      "name": "SaleCreated",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "listingFee",
+          "type": "uint256"
+        }
+      ],
+      "name": "setListingFee",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "nftContract",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "maxSupply",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "refferer",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "start",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "duration",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint96",
+          "name": "rbp",
+          "type": "uint96"
+        }
+      ],
+      "name": "createSale",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "nftContract",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "listLicense",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "saleId",
+          "type": "uint256"
+        }
+      ],
+      "name": "forceCloseSale",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "saleId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "participate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "licenseId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "purchaseLicense",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "fetchListedLicenses",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "licenseId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "nftContract",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "seller",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "price",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "sold",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct IHeirloomMarketplace.LicenseItem[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "fetchActiveSales",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "saleId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "licenseProvider",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "nftContract",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "refferer",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "soldLicenses",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "maxSupply",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "start",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "duration",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "price",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "active",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct IHeirloomMarketplace.SaleItem[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"saleId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"BoughtFromSale\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"licenseId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bool\",\"name\":\"closed\",\"type\":\"bool\"}],\"name\":\"LicenseItemClosed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"licenseId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"LicenseListed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"itemId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"name\":\"LicenseSold\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"SaleId\",\"type\":\"uint256\"}],\"name\":\"SaleClosed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"provider\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"saleId\",\"type\":\"uint256\"}],\"name\":\"SaleCreated\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"nftContract\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"maxSupply\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"refferer\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"start\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"duration\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"uint96\",\"name\":\"rbp\",\"type\":\"uint96\"}],\"name\":\"createSale\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"fetchActiveSales\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"saleId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"licenseProvider\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"nftContract\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"refferer\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"soldLicenses\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"maxSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"start\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"duration\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"}],\"internalType\":\"struct IHeirloomMarketplace.SaleItem[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"fetchListedLicenses\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"licenseId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"nftContract\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"sold\",\"type\":\"bool\"}],\"internalType\":\"struct IHeirloomMarketplace.LicenseItem[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"saleId\",\"type\":\"uint256\"}],\"name\":\"forceCloseSale\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"nftContract\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"listLicense\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"saleId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"participate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"licenseId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"purchaseLicense\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"listingFee\",\"type\":\"uint256\"}],\"name\":\"setListingFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"createSale(address,uint256,address,uint256,uint256,uint256,uint96)\":{\"params\":{\"duration\":\"duration of sale\",\"maxSupply\":\"token cap of license\",\"nftContract\":\"nft contract for minting license nft\",\"price\":\"of the item in the sale\",\"rbp\":\"royalty basis points, percentage of royalty to be collected by license creator\",\"refferer\":\"address of the refferer\",\"start\":\"startDate of the sale\"}},\"forceCloseSale(uint256)\":{\"params\":{\"saleId\":\"id of the sale*\"}},\"listLicense(address,uint256,uint256,uint256)\":{\"params\":{\"amount\":\"the amount of nfts to be put up for sale\",\"nftContract\":\"nft contract address of the license nft\",\"price\":\"price to sell license for*\",\"tokenId\":\"the tokenId of the Saas License nft\"}},\"participate(uint256,uint256)\":{\"details\":\"erc20 transfer needs to be pre-approved\",\"params\":{\"amount\":\"number of licenses to buy\",\"saleId\":\"id of the ongoing sale\"}},\"purchaseLicense(uint256,uint256)\":{\"params\":{\"amount\":\"amount to purchase \",\"licenseId\":\"id of the license to sell\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"createSale(address,uint256,address,uint256,uint256,uint256,uint96)\":{\"notice\":\"creates a saleItem\"},\"fetchActiveSales()\":{\"notice\":\"fetches all of the active nft license sales on the platform*\"},\"fetchListedLicenses()\":{\"notice\":\"fetches all tokenIds listed for sale*\"},\"forceCloseSale(uint256)\":{\"notice\":\"allows creator of a sale to foricibly end a sale\"},\"listLicense(address,uint256,uint256,uint256)\":{\"notice\":\"gives the heirloom operator permission to sell an token amount on behalf of the user\"},\"participate(uint256,uint256)\":{\"notice\":\"allows a user to participate in a license sale\"},\"purchaseLicense(uint256,uint256)\":{\"notice\":\"transfers license item to send on tokenTransfer\"},\"setListingFee(uint256)\":{\"notice\":\"sets the listing fee\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/IHeirloomMarketplace.sol\":\"IHeirloomMarketplace\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces/IHeirloomMarketplace.sol\":{\"keccak256\":\"0x99634543bbb24703696cb068d4f0c3472f571ece993093fa55b13eb1bbbcd6f6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a28e73e11c6e34ba8f4d849dc2fbe5ddf4c100de9ff016655618d0f726e1f0d5\",\"dweb:/ipfs/QmNyTzSJLUFZvfmHi9NJKLqo91r9Rr9w8LiJ88KMqp1FTS\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.4;\r\n\r\ninterface IHeirloomMarketplace {\r\n  /**\r\n    @dev interface for the HeirloomDao market place\r\n   */\r\n  \r\n  /**\r\n    @notice represents a sale item object\r\n    @dev The first time the sale Item is redeemed minted becomes true\r\n    @dev The total balance of the token can never exceed the total suppy of the token \r\n   */\r\n  struct SaleItem {\r\n    uint256 saleId;\r\n    address licenseProvider;\r\n    uint256 tokenId;\r\n    address nftContract;\r\n    address refferer;\r\n    uint256 soldLicenses;\r\n    uint256 maxSupply;\r\n    uint256 start;\r\n    uint256 duration;\r\n    uint256 price;\r\n    bool active;\r\n  }\r\n\r\n  /**\r\n    @notice represents a LicenseItem\r\n    @dev used for lazyminting so that creators wont have to the minting price of the nft\r\n  **/\r\n  struct LicenseItem {\r\n    uint256 licenseId;\r\n    uint256 tokenId;\r\n    address nftContract;\r\n    address seller;\r\n    uint256 price;\r\n    uint256 amount;\r\n    bool sold;\r\n  }\r\n\r\n  event SaleCreated(address indexed provider, uint256 indexed saleId);\r\n  event SaleClosed(uint256 indexed SaleId);\r\n  event BoughtFromSale(uint256 indexed saleId, uint256 indexed tokenId, address buyer, uint256 amount);\r\n  event LicenseListed(\r\n    uint256 indexed licenseId,\r\n    uint256 indexed tokenId,\r\n    address seller,\r\n    uint256 price,\r\n    uint256 amount\r\n  );\r\n  event LicenseSold(\r\n    uint256 indexed itemId,\r\n    uint256 indexed tokenId,\r\n    address seller,\r\n    address buyer,\r\n    uint256 amount,\r\n    uint256 price\r\n  );\r\n  event LicenseItemClosed(uint256 indexed licenseId, address seller, bool indexed closed);\r\n\r\n  /**\r\n    @notice sets the listing fee\r\n  */\r\n  function setListingFee(uint256 listingFee) external returns(uint256);\r\n\r\n  /** \r\n    @notice creates a saleItem\r\n    @param nftContract nft contract for minting license nft\r\n    @param maxSupply token cap of license\r\n    @param refferer address of the refferer\r\n    @param start startDate of the sale\r\n    @param duration duration of sale\r\n    @param price of the item in the sale\r\n    @param rbp royalty basis points, percentage of royalty to be collected by license creator\r\n  */\r\n  function createSale(\r\n    address nftContract,\r\n    uint256 maxSupply,\r\n    address refferer,\r\n    uint256 start,\r\n    uint256 duration,\r\n    uint256 price,\r\n    uint96 rbp\r\n  ) external returns (uint256);\r\n\r\n  /**\r\n    @notice gives the heirloom operator permission to sell an token amount on behalf of the user\r\n    @param nftContract nft contract address of the license nft\r\n    @param tokenId the tokenId of the Saas License nft\r\n    @param amount the amount of nfts to be put up for sale\r\n    @param price price to sell license for\r\n  **/\r\n  function listLicense(address nftContract, uint256 tokenId, uint256 price, uint256 amount) external returns (uint256);\r\n\r\n  /**\r\n    @notice allows creator of a sale to foricibly end a sale\r\n    @param saleId id of the sale\r\n  **/\r\n  function forceCloseSale(uint256 saleId) external;\r\n\r\n\r\n  /**\r\n    @notice allows a user to participate in a license sale\r\n    @dev erc20 transfer needs to be pre-approved\r\n    @param saleId id of the ongoing sale\r\n    @param amount number of licenses to buy\r\n   */\r\n  function participate(uint256 saleId, uint256 amount) external;\r\n\r\n  /**\r\n    @notice transfers license item to send on tokenTransfer\r\n    @param licenseId id of the license to sell\r\n    @param amount amount to purchase \r\n   */\r\n  function purchaseLicense(uint256 licenseId, uint256 amount) external;\r\n  \r\n  /**\r\n    @notice fetches all tokenIds listed for sale\r\n  **/\r\n  function fetchListedLicenses() external returns(LicenseItem [] memory);\r\n  \r\n  /**\r\n    @notice fetches all of the active nft license sales on the platform\r\n  **/\r\n  function fetchActiveSales() external returns(SaleItem [] memory);\r\n}\r\n",
+  "sourcePath": "D:\\work\\heirloom\\src\\contracts\\contracts\\interfaces\\IHeirloomMarketplace.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/interfaces/IHeirloomMarketplace.sol",
+    "exportedSymbols": {
+      "IHeirloomMarketplace": [
+        5494
+      ]
+    },
+    "id": 5495,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 5321,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:27"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IHeirloomMarketplace",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 5494,
+        "linearizedBaseContracts": [
+          5494
+        ],
+        "name": "IHeirloomMarketplace",
+        "nameLocation": "70:20:27",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "IHeirloomMarketplace.SaleItem",
+            "id": 5344,
+            "members": [
+              {
+                "constant": false,
+                "id": 5323,
+                "mutability": "mutable",
+                "name": "saleId",
+                "nameLocation": "414:6:27",
+                "nodeType": "VariableDeclaration",
+                "scope": 5344,
+                "src": "406:14:27",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 5322,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "406:7:27",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5325,
+                "mutability": "mutable",
+                "name": "licenseProvider",
+                "nameLocation": "435:15:27",
+                "nodeType": "VariableDeclaration",
+                "scope": 5344,
+                "src": "427:23:27",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 5324,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "427:7:27",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5327,
+                "mutability": "mutable",
+                "name": "tokenId",
+                "nameLocation": "465:7:27",
+                "nodeType": "VariableDeclaration",
+                "scope": 5344,
+                "src": "457:15:27",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 5326,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "457:7:27",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5329,
+                "mutability": "mutable",
+                "name": "nftContract",
+                "nameLocation": "487:11:27",
+                "nodeType": "VariableDeclaration",
+                "scope": 5344,
+                "src": "479:19:27",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 5328,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "479:7:27",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5331,
+                "mutability": "mutable",
+                "name": "refferer",
+                "nameLocation": "513:8:27",
+                "nodeType": "VariableDeclaration",
+                "scope": 5344,
+                "src": "505:16:27",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 5330,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "505:7:27",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5333,
+                "mutability": "mutable",
+                "name": "soldLicenses",
+                "nameLocation": "536:12:27",
+                "nodeType": "VariableDeclaration",
+                "scope": 5344,
+                "src": "528:20:27",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 5332,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "528:7:27",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5335,
+                "mutability": "mutable",
+                "name": "maxSupply",
+                "nameLocation": "563:9:27",
+                "nodeType": "VariableDeclaration",
+                "scope": 5344,
+                "src": "555:17:27",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 5334,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "555:7:27",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5337,
+                "mutability": "mutable",
+                "name": "start",
+                "nameLocation": "587:5:27",
+                "nodeType": "VariableDeclaration",
+                "scope": 5344,
+                "src": "579:13:27",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 5336,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "579:7:27",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5339,
+                "mutability": "mutable",
+                "name": "duration",
+                "nameLocation": "607:8:27",
+                "nodeType": "VariableDeclaration",
+                "scope": 5344,
+                "src": "599:16:27",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 5338,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "599:7:27",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5341,
+                "mutability": "mutable",
+                "name": "price",
+                "nameLocation": "630:5:27",
+                "nodeType": "VariableDeclaration",
+                "scope": 5344,
+                "src": "622:13:27",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 5340,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "622:7:27",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5343,
+                "mutability": "mutable",
+                "name": "active",
+                "nameLocation": "647:6:27",
+                "nodeType": "VariableDeclaration",
+                "scope": 5344,
+                "src": "642:11:27",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 5342,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "642:4:27",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "SaleItem",
+            "nameLocation": "390:8:27",
+            "nodeType": "StructDefinition",
+            "scope": 5494,
+            "src": "383:276:27",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IHeirloomMarketplace.LicenseItem",
+            "id": 5359,
+            "members": [
+              {
+                "constant": false,
+                "id": 5346,
+                "mutability": "mutable",
+                "name": "licenseId",
+                "nameLocation": "841:9:27",
+                "nodeType": "VariableDeclaration",
+                "scope": 5359,
+                "src": "833:17:27",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 5345,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "833:7:27",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5348,
+                "mutability": "mutable",
+                "name": "tokenId",
+                "nameLocation": "865:7:27",
+                "nodeType": "VariableDeclaration",
+                "scope": 5359,
+                "src": "857:15:27",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 5347,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "857:7:27",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5350,
+                "mutability": "mutable",
+                "name": "nftContract",
+                "nameLocation": "887:11:27",
+                "nodeType": "VariableDeclaration",
+                "scope": 5359,
+                "src": "879:19:27",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 5349,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "879:7:27",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5352,
+                "mutability": "mutable",
+                "name": "seller",
+                "nameLocation": "913:6:27",
+                "nodeType": "VariableDeclaration",
+                "scope": 5359,
+                "src": "905:14:27",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 5351,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "905:7:27",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5354,
+                "mutability": "mutable",
+                "name": "price",
+                "nameLocation": "934:5:27",
+                "nodeType": "VariableDeclaration",
+                "scope": 5359,
+                "src": "926:13:27",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 5353,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "926:7:27",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5356,
+                "mutability": "mutable",
+                "name": "amount",
+                "nameLocation": "954:6:27",
+                "nodeType": "VariableDeclaration",
+                "scope": 5359,
+                "src": "946:14:27",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 5355,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "946:7:27",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5358,
+                "mutability": "mutable",
+                "name": "sold",
+                "nameLocation": "972:4:27",
+                "nodeType": "VariableDeclaration",
+                "scope": 5359,
+                "src": "967:9:27",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 5357,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "967:4:27",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "LicenseItem",
+            "nameLocation": "814:11:27",
+            "nodeType": "StructDefinition",
+            "scope": 5494,
+            "src": "807:175:27",
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "371910e598072529180b28c60f34fc7445d99bd870936559016ce9e1282df515",
+            "id": 5365,
+            "name": "SaleCreated",
+            "nameLocation": "994:11:27",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 5364,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5361,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "provider",
+                  "nameLocation": "1022:8:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5365,
+                  "src": "1006:24:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5360,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1006:7:27",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5363,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "saleId",
+                  "nameLocation": "1048:6:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5365,
+                  "src": "1032:22:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5362,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1032:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1005:50:27"
+            },
+            "src": "988:68:27"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "cb67f20f64495b30f15524c55f90201dd6571d6b5c19dac183d2aeb25315b2dc",
+            "id": 5369,
+            "name": "SaleClosed",
+            "nameLocation": "1066:10:27",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 5368,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5367,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "SaleId",
+                  "nameLocation": "1093:6:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5369,
+                  "src": "1077:22:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5366,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1077:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1076:24:27"
+            },
+            "src": "1060:41:27"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "5a9c9fcfe7b05adffc62900a02abd1b27a29fea7b21da7470fa30a986aa96463",
+            "id": 5379,
+            "name": "BoughtFromSale",
+            "nameLocation": "1111:14:27",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 5378,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5371,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "saleId",
+                  "nameLocation": "1142:6:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5379,
+                  "src": "1126:22:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5370,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1126:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5373,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "1166:7:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5379,
+                  "src": "1150:23:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5372,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1150:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5375,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "buyer",
+                  "nameLocation": "1183:5:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5379,
+                  "src": "1175:13:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5374,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1175:7:27",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5377,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "1198:6:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5379,
+                  "src": "1190:14:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5376,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1190:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1125:80:27"
+            },
+            "src": "1105:101:27"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "a29719e0668112fd314a3f01101222c563cd19f94809a1483b5c39bcfb5d0cdb",
+            "id": 5391,
+            "name": "LicenseListed",
+            "nameLocation": "1216:13:27",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 5390,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5381,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "licenseId",
+                  "nameLocation": "1252:9:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5391,
+                  "src": "1236:25:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5380,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1236:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5383,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "1284:7:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5391,
+                  "src": "1268:23:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5382,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1268:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5385,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "seller",
+                  "nameLocation": "1306:6:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5391,
+                  "src": "1298:14:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5384,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1298:7:27",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5387,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "price",
+                  "nameLocation": "1327:5:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5391,
+                  "src": "1319:13:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5386,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1319:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5389,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "1347:6:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5391,
+                  "src": "1339:14:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5388,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1339:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1229:129:27"
+            },
+            "src": "1210:149:27"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "310fa35a97953eb1ad1a08f772c9bacdcc6d6eccc4c4340fa099e9d563f1b80a",
+            "id": 5405,
+            "name": "LicenseSold",
+            "nameLocation": "1369:11:27",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 5404,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5393,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "itemId",
+                  "nameLocation": "1403:6:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5405,
+                  "src": "1387:22:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5392,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1387:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5395,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "1432:7:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5405,
+                  "src": "1416:23:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5394,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1416:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5397,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "seller",
+                  "nameLocation": "1454:6:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5405,
+                  "src": "1446:14:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5396,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1446:7:27",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5399,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "buyer",
+                  "nameLocation": "1475:5:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5405,
+                  "src": "1467:13:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5398,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1467:7:27",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5401,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "1495:6:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5405,
+                  "src": "1487:14:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5400,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1487:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5403,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "price",
+                  "nameLocation": "1516:5:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5405,
+                  "src": "1508:13:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5402,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1508:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1380:146:27"
+            },
+            "src": "1363:164:27"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "b2da6119930a2b9a205c7efd44ac791a3f6ad7318286054fb980085a555e020d",
+            "id": 5413,
+            "name": "LicenseItemClosed",
+            "nameLocation": "1537:17:27",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 5412,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5407,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "licenseId",
+                  "nameLocation": "1571:9:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5413,
+                  "src": "1555:25:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5406,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1555:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5409,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "seller",
+                  "nameLocation": "1590:6:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5413,
+                  "src": "1582:14:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5408,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1582:7:27",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5411,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "closed",
+                  "nameLocation": "1611:6:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5413,
+                  "src": "1598:19:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 5410,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1598:4:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1554:64:27"
+            },
+            "src": "1531:88:27"
+          },
+          {
+            "documentation": {
+              "id": 5414,
+              "nodeType": "StructuredDocumentation",
+              "src": "1625:43:27",
+              "text": "@notice sets the listing fee"
+            },
+            "functionSelector": "131dbd09",
+            "id": 5421,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setListingFee",
+            "nameLocation": "1681:13:27",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5417,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5416,
+                  "mutability": "mutable",
+                  "name": "listingFee",
+                  "nameLocation": "1703:10:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5421,
+                  "src": "1695:18:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5415,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1695:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1694:20:27"
+            },
+            "returnParameters": {
+              "id": 5420,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5419,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5421,
+                  "src": "1732:7:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5418,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1732:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1731:9:27"
+            },
+            "scope": 5494,
+            "src": "1672:69:27",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 5422,
+              "nodeType": "StructuredDocumentation",
+              "src": "1747:406:27",
+              "text": "@notice creates a saleItem\n@param nftContract nft contract for minting license nft\n@param maxSupply token cap of license\n@param refferer address of the refferer\n@param start startDate of the sale\n@param duration duration of sale\n@param price of the item in the sale\n@param rbp royalty basis points, percentage of royalty to be collected by license creator"
+            },
+            "functionSelector": "ba14b327",
+            "id": 5441,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "createSale",
+            "nameLocation": "2166:10:27",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5437,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5424,
+                  "mutability": "mutable",
+                  "name": "nftContract",
+                  "nameLocation": "2191:11:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5441,
+                  "src": "2183:19:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5423,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2183:7:27",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5426,
+                  "mutability": "mutable",
+                  "name": "maxSupply",
+                  "nameLocation": "2217:9:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5441,
+                  "src": "2209:17:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5425,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2209:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5428,
+                  "mutability": "mutable",
+                  "name": "refferer",
+                  "nameLocation": "2241:8:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5441,
+                  "src": "2233:16:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5427,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2233:7:27",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5430,
+                  "mutability": "mutable",
+                  "name": "start",
+                  "nameLocation": "2264:5:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5441,
+                  "src": "2256:13:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5429,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2256:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5432,
+                  "mutability": "mutable",
+                  "name": "duration",
+                  "nameLocation": "2284:8:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5441,
+                  "src": "2276:16:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5431,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2276:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5434,
+                  "mutability": "mutable",
+                  "name": "price",
+                  "nameLocation": "2307:5:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5441,
+                  "src": "2299:13:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5433,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2299:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5436,
+                  "mutability": "mutable",
+                  "name": "rbp",
+                  "nameLocation": "2326:3:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5441,
+                  "src": "2319:10:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  },
+                  "typeName": {
+                    "id": 5435,
+                    "name": "uint96",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2319:6:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint96",
+                      "typeString": "uint96"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2176:158:27"
+            },
+            "returnParameters": {
+              "id": 5440,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5439,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5441,
+                  "src": "2353:7:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5438,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2353:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2352:9:27"
+            },
+            "scope": 5494,
+            "src": "2157:205:27",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 5442,
+              "nodeType": "StructuredDocumentation",
+              "src": "2368:332:27",
+              "text": "@notice gives the heirloom operator permission to sell an token amount on behalf of the user\n@param nftContract nft contract address of the license nft\n@param tokenId the tokenId of the Saas License nft\n@param amount the amount of nfts to be put up for sale\n@param price price to sell license for*"
+            },
+            "functionSelector": "e5c542bf",
+            "id": 5455,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "listLicense",
+            "nameLocation": "2713:11:27",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5451,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5444,
+                  "mutability": "mutable",
+                  "name": "nftContract",
+                  "nameLocation": "2733:11:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5455,
+                  "src": "2725:19:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5443,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2725:7:27",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5446,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "2754:7:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5455,
+                  "src": "2746:15:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5445,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2746:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5448,
+                  "mutability": "mutable",
+                  "name": "price",
+                  "nameLocation": "2771:5:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5455,
+                  "src": "2763:13:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5447,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2763:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5450,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "2786:6:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5455,
+                  "src": "2778:14:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5449,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2778:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2724:69:27"
+            },
+            "returnParameters": {
+              "id": 5454,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5453,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5455,
+                  "src": "2812:7:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5452,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2812:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2811:9:27"
+            },
+            "scope": 5494,
+            "src": "2704:117:27",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 5456,
+              "nodeType": "StructuredDocumentation",
+              "src": "2827:106:27",
+              "text": "@notice allows creator of a sale to foricibly end a sale\n@param saleId id of the sale*"
+            },
+            "functionSelector": "7802bd43",
+            "id": 5461,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "forceCloseSale",
+            "nameLocation": "2946:14:27",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5459,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5458,
+                  "mutability": "mutable",
+                  "name": "saleId",
+                  "nameLocation": "2969:6:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5461,
+                  "src": "2961:14:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5457,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2961:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2960:16:27"
+            },
+            "returnParameters": {
+              "id": 5460,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2985:0:27"
+            },
+            "scope": 5494,
+            "src": "2937:49:27",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 5462,
+              "nodeType": "StructuredDocumentation",
+              "src": "2994:207:27",
+              "text": "@notice allows a user to participate in a license sale\n@dev erc20 transfer needs to be pre-approved\n@param saleId id of the ongoing sale\n@param amount number of licenses to buy"
+            },
+            "functionSelector": "129874aa",
+            "id": 5469,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "participate",
+            "nameLocation": "3214:11:27",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5467,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5464,
+                  "mutability": "mutable",
+                  "name": "saleId",
+                  "nameLocation": "3234:6:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5469,
+                  "src": "3226:14:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5463,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3226:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5466,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "3250:6:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5469,
+                  "src": "3242:14:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5465,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3242:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3225:32:27"
+            },
+            "returnParameters": {
+              "id": 5468,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3266:0:27"
+            },
+            "scope": 5494,
+            "src": "3205:62:27",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 5470,
+              "nodeType": "StructuredDocumentation",
+              "src": "3273:158:27",
+              "text": "@notice transfers license item to send on tokenTransfer\n@param licenseId id of the license to sell\n@param amount amount to purchase "
+            },
+            "functionSelector": "10e52a3a",
+            "id": 5477,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "purchaseLicense",
+            "nameLocation": "3444:15:27",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5475,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5472,
+                  "mutability": "mutable",
+                  "name": "licenseId",
+                  "nameLocation": "3468:9:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5477,
+                  "src": "3460:17:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5471,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3460:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5474,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "3487:6:27",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5477,
+                  "src": "3479:14:27",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5473,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3479:7:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3459:35:27"
+            },
+            "returnParameters": {
+              "id": 5476,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3503:0:27"
+            },
+            "scope": 5494,
+            "src": "3435:69:27",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 5478,
+              "nodeType": "StructuredDocumentation",
+              "src": "3512:60:27",
+              "text": "@notice fetches all tokenIds listed for sale*"
+            },
+            "functionSelector": "c703a6cd",
+            "id": 5485,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "fetchListedLicenses",
+            "nameLocation": "3585:19:27",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5479,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3604:2:27"
+            },
+            "returnParameters": {
+              "id": 5484,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5483,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5485,
+                  "src": "3624:21:27",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_LicenseItem_$5359_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct IHeirloomMarketplace.LicenseItem[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 5481,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 5480,
+                        "name": "LicenseItem",
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 5359,
+                        "src": "3624:11:27"
+                      },
+                      "referencedDeclaration": 5359,
+                      "src": "3624:11:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_LicenseItem_$5359_storage_ptr",
+                        "typeString": "struct IHeirloomMarketplace.LicenseItem"
+                      }
+                    },
+                    "id": 5482,
+                    "nodeType": "ArrayTypeName",
+                    "src": "3624:14:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_LicenseItem_$5359_storage_$dyn_storage_ptr",
+                      "typeString": "struct IHeirloomMarketplace.LicenseItem[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3623:23:27"
+            },
+            "scope": 5494,
+            "src": "3576:71:27",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 5486,
+              "nodeType": "StructuredDocumentation",
+              "src": "3655:83:27",
+              "text": "@notice fetches all of the active nft license sales on the platform*"
+            },
+            "functionSelector": "6e1c8181",
+            "id": 5493,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "fetchActiveSales",
+            "nameLocation": "3751:16:27",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5487,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3767:2:27"
+            },
+            "returnParameters": {
+              "id": 5492,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5491,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5493,
+                  "src": "3787:18:27",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_SaleItem_$5344_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct IHeirloomMarketplace.SaleItem[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 5489,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 5488,
+                        "name": "SaleItem",
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 5344,
+                        "src": "3787:8:27"
+                      },
+                      "referencedDeclaration": 5344,
+                      "src": "3787:8:27",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_SaleItem_$5344_storage_ptr",
+                        "typeString": "struct IHeirloomMarketplace.SaleItem"
+                      }
+                    },
+                    "id": 5490,
+                    "nodeType": "ArrayTypeName",
+                    "src": "3787:11:27",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_SaleItem_$5344_storage_$dyn_storage_ptr",
+                      "typeString": "struct IHeirloomMarketplace.SaleItem[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3786:20:27"
+            },
+            "scope": 5494,
+            "src": "3742:65:27",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 5495,
+        "src": "60:3750:27",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:3779:27"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.13+commit.abaa5c0e.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.7",
+  "updatedAt": "2022-04-17T09:59:31.363Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "createSale(address,uint256,address,uint256,uint256,uint256,uint96)": {
+        "params": {
+          "duration": "duration of sale",
+          "maxSupply": "token cap of license",
+          "nftContract": "nft contract for minting license nft",
+          "price": "of the item in the sale",
+          "rbp": "royalty basis points, percentage of royalty to be collected by license creator",
+          "refferer": "address of the refferer",
+          "start": "startDate of the sale"
+        }
+      },
+      "forceCloseSale(uint256)": {
+        "params": {
+          "saleId": "id of the sale*"
+        }
+      },
+      "listLicense(address,uint256,uint256,uint256)": {
+        "params": {
+          "amount": "the amount of nfts to be put up for sale",
+          "nftContract": "nft contract address of the license nft",
+          "price": "price to sell license for*",
+          "tokenId": "the tokenId of the Saas License nft"
+        }
+      },
+      "participate(uint256,uint256)": {
+        "details": "erc20 transfer needs to be pre-approved",
+        "params": {
+          "amount": "number of licenses to buy",
+          "saleId": "id of the ongoing sale"
+        }
+      },
+      "purchaseLicense(uint256,uint256)": {
+        "params": {
+          "amount": "amount to purchase ",
+          "licenseId": "id of the license to sell"
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "createSale(address,uint256,address,uint256,uint256,uint256,uint96)": {
+        "notice": "creates a saleItem"
+      },
+      "fetchActiveSales()": {
+        "notice": "fetches all of the active nft license sales on the platform*"
+      },
+      "fetchListedLicenses()": {
+        "notice": "fetches all tokenIds listed for sale*"
+      },
+      "forceCloseSale(uint256)": {
+        "notice": "allows creator of a sale to foricibly end a sale"
+      },
+      "listLicense(address,uint256,uint256,uint256)": {
+        "notice": "gives the heirloom operator permission to sell an token amount on behalf of the user"
+      },
+      "participate(uint256,uint256)": {
+        "notice": "allows a user to participate in a license sale"
+      },
+      "purchaseLicense(uint256,uint256)": {
+        "notice": "transfers license item to send on tokenTransfer"
+      },
+      "setListingFee(uint256)": {
+        "notice": "sets the listing fee"
+      }
+    },
+    "version": 1
+  }
+}
